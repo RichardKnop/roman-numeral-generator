@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>BBC Coding Kata</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="js/RomanNumeralGenerator.js"></script>
+    <script src="js/RomanNumeralGeneratorTest.js"></script>
+    <script>
+$(document).ready(function() {
+    if (typeof(NS) === "undefined") {
+        NS = {};
+    }
+    if (typeof(NS.Lib) === "undefined") {
+        NS.Lib = {};
+    }
+    if (typeof(NS.Test) === "undefined") {
+        NS.Test = {};
+    }
+    NS.App = (function() {
+        var init = function() {
+            // When the button is clicked, run the unit tests
+            $("button#run-unit-tests").click(function() {
+                var testSuite = new NS.Test.RomanNumeralGenerator();
+                testSuite.runTests();
+
+                var total = testSuite.passed + testSuite.failed;
+                var message = "Of " + total + " tests, " + testSuite.failed + " failed, "
+                + testSuite.passed + " passed."
+
+                $("p#results").html(message);
+                console.log(message);
+
+            });
+        };
+        
+        return {
+            init: init
+        };
+    }());
+    NS.App.init();
+});
+    </script>
+</head>
+<body>
+
+    <h1>BBC Coding Kata</h1>
+    <p id="results"></p>
+    <button id="run-unit-tests">Run unit tests</button>
+    
+</body>
+</html>
