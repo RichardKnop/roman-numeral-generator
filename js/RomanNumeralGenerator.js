@@ -5,7 +5,7 @@ if (typeof(NS.Lib) === "undefined") {
     NS.Lib = {};
 }
 
-// create the RomanNumeralGenerator object by defining its constructor
+// Create the RomanNumeralGenerator object by defining its constructor
 NS.Lib.RomanNumeralGenerator = function RomanNumeralGenerator() {
     this.mapping = {
         0: {"M": 1000},
