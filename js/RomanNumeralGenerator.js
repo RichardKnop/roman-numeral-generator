@@ -23,11 +23,16 @@ NS.Lib.RomanNumeralGenerator = function RomanNumeralGenerator() {
         12: {"I": 1}
     };
 }
+// Add method to validate value is integer
+NS.Lib.RomanNumeralGenerator.prototype.isInt = function(value) { 
+    return !isNaN(parseInt(value)) && (parseFloat(value) == parseInt(value)); 
+}
 // Add method to convert arabic number to roman numeral to the RomanNumeralGenerator's prototype
 NS.Lib.RomanNumeralGenerator.prototype.convert = function(number) {
-    if (number < 1 || number > 3999) {
+    if (!this.isInt(number) || number < 1 || number > 3999) {
         return false;
     }
+    number = parseInt(number);
     
     var romanNumeral = "";
     

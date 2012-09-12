@@ -29,6 +29,10 @@ NS.Test.RomanNumeralGenerator.prototype.runTests = function() {
     this.assertEquals(false, this.generator.convert(0));
     // Test returns false for number > 3999
     this.assertEquals(false, this.generator.convert(4000));
+    // Test returns false when input not integer
+    this.assertEquals(false, this.generator.convert("bogus"));
+    this.assertEquals(false, this.generator.convert(new Array()));
+    this.assertEquals(false, this.generator.convert(1.2));
     
     // Now let's test the actual conversion
     this.assertEquals("I", this.generator.convert(1));
